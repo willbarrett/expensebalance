@@ -1,6 +1,9 @@
+!!!
 %html
-	%head
-		%title ExpenseBalance
-		=javascript_include_tag 'jquery'
-		%body
-			=yield
+  %head
+    %title ExpenseBalance
+    = stylesheet_link_tag 'jquery.mobile-1.0a3.min.css'
+    = javascript_include_tag 'jquery', 'jquery.mobile-1.0a3.min.js'
+  %body
+    %div{"data-role" => 'page'}
+      =yield
