@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @expense.user_id
+%p
+  %b Amount:
+  = @expense.amount
+%p
+  %b Date:
+  = @expense.date
+%p
+  %b For:
+  = @expense.for
+
+= link_to 'Edit', edit_expense_path(@expense)
+\|
+= link_to 'Back', expenses_path

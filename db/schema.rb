@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110318122506) do
+ActiveRecord::Schema.define(:version => 20110318125301) do
+
+  create_table "expenses", :force => true do |t|
+    t.integer  "user_id"
+    t.decimal  "amount",     :precision => 2, :scale => 0
+    t.date     "date"
+    t.text     "for"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false

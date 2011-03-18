@@ -1,4 +1,6 @@
 Expensebalance::Application.routes.draw do
+  resources :expenses
+
   devise_for :users
 
   # The priority is based upon order of creation:

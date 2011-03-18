@@ -10,7 +10,9 @@ gem 'haml'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'devise'
+# required to generate devise views
 gem 'hpricot'
+gem 'ruby_parser'
 
 # Use unicorn as the web server
 # gem 'unicorn'
