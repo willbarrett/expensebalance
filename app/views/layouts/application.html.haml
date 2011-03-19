@@ -3,7 +3,15 @@
   %head
     %title ExpenseBalance
     = stylesheet_link_tag 'jquery.mobile-1.0a3.min.css'
-    = javascript_include_tag 'jquery', 'jquery.mobile-1.0a3.min.js'
+    = javascript_include_tag 'jquery', 'jquery.mobile-1.0a3.min.js', 'rails'
+    = csrf_meta_tag
   %body
     %div{"data-role" => 'page'}
-      =yield
+      %div{"data-role" => 'header', 'data-position' => 'fixed'}
+        = link_to 'Home', root_path, 'data-icon' => 'home', :class => 'ui-btn-left', 'rel' => 'external'
+        =yield :header
+      %div{"data-role" => 'content'}
+        =yield
+      %div{"data-role" => 'footer', 'data-position' => 'fixed', :class=>'ui-bar' }
+        %h4{ :style => "#{@net_color}; float: right", 'class' => 'ui-title'}= "Net: $#{@net}" unless @net.nil?
+        = link_to 'New Expense', new_expense_path, 'data-icon' => 'plus'

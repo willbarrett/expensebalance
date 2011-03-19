@@ -1,6 +1,7 @@
 class ExpensesController < ApplicationController
   
   before_filter :authenticate_user!
+  before_filter :find_net
   
   # GET /expenses
   # GET /expenses.xml
@@ -83,4 +84,12 @@ class ExpensesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  protected
+    def find_net
+      mine = Expense.where(:user_id => current_user.id).sum('amount')
+      theirs = Expense.where('user_id <> ?', current_user.id).sum('amount')
+      @net = theirs - mine
+      @net_color = @net >= 0 ? 'color: green' : 'color: red'
+    end
 end

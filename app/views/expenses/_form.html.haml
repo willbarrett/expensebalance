@@ -7,15 +7,15 @@
           %li= msg
 
   = f.hidden_field :user_id, :value => current_user.id
-  .field
+  %div{'data-role' => 'fieldcontain'}
     = f.label :amount
     = f.text_field :amount
-  .field
+  %div{'data-role' => 'fieldcontain'}
     = f.label :for
-    %br
-    = f.text_area :for
-  .field
+    = f.text_field :for
+  %div{'data-role' => 'fieldcontain'}
     = f.label :date
+    %br
     = f.date_select :date
-  .actions
+  %div{'data-role' => 'fieldcontain'}
     = f.submit 'Save'

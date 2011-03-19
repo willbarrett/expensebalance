@@ -1,10 +1,6 @@
-%div{"data-role" => 'header'}
-  %h1 Listing expenses
-%div{"data-role" => 'content'}
-  %ul{"data-role" => "listview"}
-    - @expenses.each do |expense|
-      - if current_user.id == expense.user_id
-      %li{"style" => 'color: green'}= link_to("#{expense.amount} #{expense.date} #{expense.for}", expense)
-    
-%div{"data-role" => 'footer'}
-  = link_to 'New Expense', new_expense_path
+- content_for :header do
+  %h1 Expense List
+%ul{"data-role" => "listview"}
+  - @expenses.each do |expense|
+    - color = current_user.id == expense.user_id ? 'color: green' : 'color: red'
+    %li= link_to("#{expense.date.strftime('%m/%d/%y')} $#{expense.amount} #{expense.for}", expense, :style => color)

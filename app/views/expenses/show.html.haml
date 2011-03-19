@@ -1,18 +1,18 @@
+-content_for :header do
+  %h1= @expense.for
+  = link_to 'Edit', edit_expense_path(@expense), 'data-icon' => 'gear', :class => 'ui-btn-right'
+
 %p#notice= notice
 
 %p
-  %b User:
-  = @expense.user_id
+  %b Whodunnit:
+  = @expense.user.email
 %p
-  %b Amount:
-  = @expense.amount
+  %b To the tune of:
+  = "$#{@expense.amount}"
 %p
-  %b Date:
-  = @expense.date
-%p
-  %b For:
-  = @expense.for
+  %b When:
+  = @expense.date.strftime('%m/%d/%Y')
 
-= link_to 'Edit', edit_expense_path(@expense)
-\|
-= link_to 'Back', expenses_path
+
+
