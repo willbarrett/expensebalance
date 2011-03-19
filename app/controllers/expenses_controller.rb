@@ -6,7 +6,7 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.xml
   def index
-    @expenses = Expense.all
+    @expenses = Expense.limit(10)
 
     respond_to do |format|
       format.html # index.html.erb

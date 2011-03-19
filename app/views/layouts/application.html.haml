@@ -7,11 +7,11 @@
     = csrf_meta_tag
   %body
     %div{"data-role" => 'page'}
-      %div{"data-role" => 'header', 'data-position' => 'fixed'}
+      %div{"data-role" => 'header'}
         = link_to 'Home', root_path, 'data-icon' => 'home', :class => 'ui-btn-left', 'rel' => 'external'
         =yield :header
       %div{"data-role" => 'content'}
         =yield
-      %div{"data-role" => 'footer', 'data-position' => 'fixed', :class=>'ui-bar' }
+      %div{"data-role" => 'footer' }
         %h4{ :style => "#{@net_color}; float: right", 'class' => 'ui-title'}= "Net: $#{@net}" unless @net.nil?
         = link_to 'New Expense', new_expense_path, 'data-icon' => 'plus'
