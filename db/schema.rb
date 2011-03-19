@@ -10,11 +10,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110318125301) do
+ActiveRecord::Schema.define(:version => 20110319211654) do
 
   create_table "expenses", :force => true do |t|
     t.integer  "user_id"
-    t.decimal  "amount",     :precision => 2, :scale => 0
+    t.decimal  "amount",     :precision => 11, :scale => 2
     t.date     "date"
     t.text     "for"
     t.datetime "created_at"
