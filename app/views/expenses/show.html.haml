@@ -9,7 +9,7 @@
   = @expense.user.email
 %p
   %b To the tune of:
-  = "$#{@expense.amount}"
+  = "$#{sprintf('%#.2f', @expense.amount)}"
 %p
   %b When:
   = @expense.date.strftime('%m/%d/%Y')

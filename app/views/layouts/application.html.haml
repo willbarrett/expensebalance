@@ -13,5 +13,5 @@
       %div{"data-role" => 'content'}
         =yield
       %div{"data-role" => 'footer' }
-        %h4{ :style => "#{@net_color}; float: right", 'class' => 'ui-title'}= "Net: $#{@net}" unless @net.nil?
+        %h4{ :style => "#{@net_color}; float: right", 'class' => 'ui-title'}= "Net: $#{sprintf('%#.2f', @net)}" unless @net.nil?
         = link_to 'New Expense', new_expense_path, 'data-icon' => 'plus'
