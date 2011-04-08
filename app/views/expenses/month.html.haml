@@ -1,0 +1,4 @@
+- content_for :header do
+  %h1="Expenses for #{@requested_month.strftime('%b %Y')}"
+- if @expenses.present?
+  =render :partial => 'expense_lis', :locals => {:expenses => @expenses}

@@ -5,7 +5,7 @@ Expensebalance::Application.routes.draw do
   resources :expenses do
     collection do
       get 'search' # Search form
-      get 'search/:terms' # Handling the search. Also opens up API opportunities by being a get...
+      get 'search/:terms', :action => 'search_results', :as => 'search_results' # Handling the search. Also opens up API opportunities by being a get...
       get 'months' # Shows the lists of available months
       get 'month/:year/:month', :action => 'month', :as => :month # Shows a single month.
     end

@@ -86,4 +86,24 @@ class ExpensesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  # Here ends defaultness and starts awesomeness.
+  
+  def months
+    @months = Expense.order('DATE(date) DESC').group_by { |t| t.date.beginning_of_month}
+  end
+  
+  def month
+    @requested_month = Date.parse("#{params[:year]}-#{params[:month]}-1}")
+    @expenses = Expense.where("DATE(date) >= ? AND date <= ?", @requested_month, @requested_month.end_of_month ).order('DATE(date) DESC').all
+  end
+  
+  def search
+    
+  end
+  
+  def search_results
+    
+  end
+  
+  
 end

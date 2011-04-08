@@ -1,0 +1,5 @@
+- content_for :header do
+  %h1 Expenses by Month
+%ul{"data-role" => "listview"}
+  - @months.each do |month|
+    %li=link_to month[0].strftime('%B %Y'), month_expenses_path(month[0].year, month[0].month)

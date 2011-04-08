@@ -1,0 +1,4 @@
+%ul{"data-role" => "listview"}
+  - expenses.each do |expense|
+    - color = current_user.id == expense.user_id ? 'color: green' : 'color: red'
+    %li= link_to("#{expense.date.strftime('%m/%d/%y')} $#{sprintf('%#.2f', expense.amount)} #{expense.for}", expense, :style => color)
