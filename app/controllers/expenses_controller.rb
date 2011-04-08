@@ -3,6 +3,8 @@ class ExpensesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_net
   
+  include ExpensesHelper
+  
   # GET /expenses
   # GET /expenses.xml
   def index
@@ -84,12 +86,4 @@ class ExpensesController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
-  protected
-    def find_net
-      mine = Expense.where(:user_id => current_user.id).sum('amount')
-      theirs = Expense.where('user_id <> ?', current_user.id).sum('amount')
-      @net = mine - theirs
-      @net_color = @net >= 0 ? 'color: green' : 'color: red'
-    end
 end
