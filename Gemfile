@@ -1,11 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.5'
+gem 'rails', '3.0.6'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+# gem 'mysql2'
+# gem 'pg'
 gem 'haml'
 gem 'haml-rails'
 gem 'jquery-rails'
@@ -13,6 +14,10 @@ gem 'devise'
 # required to generate devise views
 gem 'hpricot'
 gem 'ruby_parser'
+
+group :development do 
+  gem 'heroku'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'
